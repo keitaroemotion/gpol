@@ -129,10 +129,11 @@ for member in members:
     for repo in repos:
         commits = get_commits(repo, member, date_from, date_to)
         if len(commits) > 0:
-            print("[{}] name: {} commits: {}"
+            print("[{}] name: {} commits: {}, changes: {}"
                       .format(
                            member,
                            repo.name,
-                           len(commits)
+                           len(commits),
+                           sum([x.stats.total for x in commits])
                        )
             )
